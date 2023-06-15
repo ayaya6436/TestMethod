@@ -30,6 +30,8 @@ public final class TabAlgos {
 	}
 	
 	
+	
+	
 	public static boolean egaux(final int[] tab1 , final int[] tab2) {
 		if(tab1.length!=tab2.length) {
 			return false;
@@ -45,6 +47,31 @@ public final class TabAlgos {
 		return true;
 		
 	}
+	
+	
+	public static boolean similaires(final int[] tab1 , final int[] tab2) {
+		if(tab1.length!=tab2.length) {
+			return false;
+		}
+		 for (int i = 0; i < tab1.length; i++) {
+	            int val = 0;
+	            for (int j = 0; j < tab2.length; j++) {
+	                if (tab1[i] == tab2[j]) {
+	                    val = 0;
+	                    break;
+	                }
+	            }
+	            if (val!=0) {
+	                return false;
+	            }
+	        }
+
+	        return true;
+		
+	}
+	
+	
+	
 	
 	
 	@Test 
@@ -64,9 +91,17 @@ public final class TabAlgos {
 	@Test 
 	public void TestEgaux() {
 		int [] tab1 = {58,8,90,100,11};
-		int [] tab2 = {58,8,90,100,11};
+		int [] tab2 = {90,8,58,100,11};
 		assertEquals(false,egaux(tab1,tab2));
 	}
+	
+	@Test 
+	public void TestSimilaires() {
+		int [] tab1 = {58,8,90,100,11};
+		int [] tab2 = {90,8,58,100,11};
+		assertEquals(true,similaires(tab1,tab2));
+	}
+	
 	
 	
 //	public static void main(String[] args) {
